@@ -1,0 +1,33 @@
+﻿<Window x:Class="WebView2WebResourceRquestedTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:local="clr-namespace:WebView2WebResourceRquestedTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Border BorderThickness="40"/>
+                <CheckBox x:Name="chk_Normal" Content="Normal" VerticalAlignment="Center" Click="chk_Normal_Click"/>
+                <Border BorderThickness="40"/>
+                <CheckBox x:Name="chk_HoldStream" Content="Hold IO Stream" VerticalAlignment="Center" Click="chk_HoldStream_Click"/>
+                <Border BorderThickness="40"/>
+                <CheckBox x:Name="chk_CopyToMemoryStream" Content="Copy To Memory Stream" VerticalAlignment="Center" Click="chk_CopyToMemoryStream_Click"/>
+
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            <wv2:WebView2 Grid.Column="0" x:Name="Browser" Source="https://demo.borland.com/testsite/download_testpage.php">
+
+            </wv2:WebView2>
+        </Grid>
+    </Grid>
+</Window>
