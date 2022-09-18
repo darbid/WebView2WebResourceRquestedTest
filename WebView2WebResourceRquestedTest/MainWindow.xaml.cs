@@ -115,11 +115,10 @@ namespace WebView2WebResourceRquestedTest
                 cwv2Response = this.Browser.CoreWebView2.Environment.CreateWebResourceResponse(IOStream, statCode, aResponse.ReasonPhrase, "");
             }
             else if (this.chk_CopyToMemoryStream.IsChecked ?? true)
-            {   //Copy the stream to a Memory Stream and then hold it as a class variable.
-                IOStream = await aResponse.Content.ReadAsStreamAsync();
+            {   //Copy the stream to a Memory Stream.
+                var stream2 = await aResponse.Content.ReadAsStreamAsync();
                 MemoryStream MEMStream2 = new();
-                IOStream.CopyTo(MEMStream2);
-                IOStream = await aResponse.Content.ReadAsStreamAsync();
+                stream2.CopyTo(MEMStream2);
                 cwv2Response = this.Browser.CoreWebView2.Environment.CreateWebResourceResponse(MEMStream2, statCode, aResponse.ReasonPhrase, "");
             }
             else
